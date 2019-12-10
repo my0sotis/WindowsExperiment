@@ -17,7 +17,7 @@ namespace DatabaseApplication.Views
 
         private void GitHubButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Link.OpenInBrowser(ConfigurationManager.AppSettings["GitHub"]);
+            Link.OpenInBrowser("https://github.com/my0sotis/WindowsExperiment");
         }
 
         private void EmailButton_OnClick(object sender, RoutedEventArgs e)

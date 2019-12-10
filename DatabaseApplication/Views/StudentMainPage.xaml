@@ -57,7 +57,6 @@
                             StaysOpen="False">
                             <StackPanel>
                                 <Button Click="MenuPopupButton_OnClick" Content="Hello World" />
-                                <Button Click="MenuPopupButton_OnClick" Content="Nice Popup" />
                                 <Button Click="MenuPopupButton_OnClick" Content="Goodbye" />
                             </StackPanel>
                         </materialDesign:PopupBox>
