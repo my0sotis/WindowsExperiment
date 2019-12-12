@@ -1,4 +1,4 @@
-namespace DataBase
+namespace DatabaseApplication.DataBase
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace DataBase
         public int scid { get; set; }
 
         [Column("grade", TypeName = "mediumint")]
-        public int? grade1 { get; set; }
+        public int? grade { get; set; }
 
         public int sid { get; set; }
 
@@ -22,5 +22,13 @@ namespace DataBase
         public virtual Course course { get; set; }
 
         public virtual Student student { get; set; }
+
+        public Grade() { }
+
+        public Grade(int sid, int cid)
+        {
+            this.sid = sid;
+            this.cid = cid;
+        }
     }
 }

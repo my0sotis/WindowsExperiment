@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatabaseApplication.Domain
+namespace DatabaseApplication.Command
 {
     static class Link
     {

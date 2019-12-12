@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatabaseApplication.Domain
+namespace DatabaseApplication.Command
 {
     public static class NotifyPropertyChangedExtension
     {

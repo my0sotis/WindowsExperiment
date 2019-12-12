@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DatabaseApplication.Domain
+namespace DatabaseApplication.Command
 {
     class PageItem : INotifyPropertyChanged
     {

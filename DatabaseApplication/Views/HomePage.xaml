@@ -21,14 +21,10 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
         <Grid
-            Margin="16"
+            Margin="16,16,16,40"
             HorizontalAlignment="Center"
-            VerticalAlignment="Top">
+            VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -54,65 +50,6 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <ScrollViewer
-            Grid.Row="1"
-            Margin="0,0,0,32"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            HorizontalScrollBarVisibility="Auto"
-            VerticalScrollBarVisibility="Disabled">
-            <Grid>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:Card
-                        Width="420"
-                        Height="270"
-                        Margin="8,2,4,16">
-                        <Grid VerticalAlignment="Stretch">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="200" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <materialDesign:PackIcon
-                                Width="160"
-                                Height="160"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Kind="GithubCircle" />
-                            <StackPanel Grid.Column="1">
-                                <TextBlock Margin="16,16,16,8">Open Source</TextBlock>
-                                <TextBlock
-                                    Margin="16,0,16,8"
-                                    VerticalAlignment="Top"
-                                    Foreground="{DynamicResource MaterialDesignBodyLight}"
-                                    TextWrapping="Wrap">
-                                    This project is completely open source. If you like it and want to say thanks you could hit the GitHub Star button, tweet or post about it, or tell your mum about it!
-                                </TextBlock>
-                            </StackPanel>
-                            <Border
-                                Grid.Row="1"
-                                Grid.ColumnSpan="2"
-                                Padding="8"
-                                BorderBrush="{DynamicResource MaterialDesignDivider}"
-                                BorderThickness="0,1,0,0">
-                                <DockPanel>
-                                    <TextBlock
-                                        Margin="16"
-                                        VerticalAlignment="Center"
-                                        Foreground="{DynamicResource MaterialDesignBodyLight}"
-                                        TextWrapping="Wrap">
-                                        Feel like you want to make a donation?  It would be gratefully received.  Click the button to donate via Open Collective.
-                                    </TextBlock>
-                                </DockPanel>
-                            </Border>
-                        </Grid>
-                    </materialDesign:Card>
-                </StackPanel>
-            </Grid>
-        </ScrollViewer>
         <materialDesign:PopupBox
             Grid.Row="1"
             Margin="32"
@@ -120,7 +57,7 @@
             VerticalAlignment="Bottom"
             Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
             <StackPanel>
-                <Button Click="GitHubButton_OnClick" ToolTip="GitHub">
+                <Button Click="GitHubButton_OnClick" ToolTip="Maybe you want to see the code?">
                     <materialDesign:PackIcon
                         Width="20"
                         Height="20"
@@ -130,7 +67,7 @@
                     Background="{DynamicResource SecondaryAccentBrush}"
                     Click="EmailButton_OnClick"
                     Foreground="{DynamicResource SecondaryAccentForegroundBrush}"
-                    ToolTip="Email">
+                    ToolTip="Maybe you want to give me some advice?">
                     <materialDesign:PackIcon Kind="Email" />
                 </Button>
 

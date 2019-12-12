@@ -1,5 +1,5 @@
-﻿using DataBase;
-using DatabaseApplication.Domain;
+﻿using DatabaseApplication.DataBase;
+using DatabaseApplication.Command;
 using DatabaseApplication.Views;
 using MaterialDesignThemes.Wpf;
 using System;
@@ -20,7 +20,10 @@ namespace DatabaseApplication.ViewModels
             PageItems = new[]
             {
                 new PageItem("Home Page", new HomePage()),
-                new PageItem("Student Info", new StudentInfoPage(Student))
+                new PageItem("Student Information", new StudentInfoPage(Student)),
+                new PageItem("Choose Course", new ChooseCoursePage(Student)),
+                new PageItem("Withdrawal", new WithdrawalPage(Student)),
+                new PageItem("Grade", new GradePage(Student))
             };
         }
 

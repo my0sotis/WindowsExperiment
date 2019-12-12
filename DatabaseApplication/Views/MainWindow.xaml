@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:domain="clr-namespace:DatabaseApplication.Command"
     xmlns:local="clr-namespace:DatabaseApplication"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -55,7 +56,8 @@
                             materialDesign:HintAssist.Hint="Account"
                             materialDesign:HintAssist.IsFloating="True"
                             AcceptsReturn="True"
-                            Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" />
+                            Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                            Text="{Binding account}" />
                     </Grid>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
@@ -82,6 +84,7 @@
                     <Button
                         Grid.Row="3"
                         Width="100"
+                        Click="Button_Click"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         ToolTip="Resource name: MaterialDesignRaisedButton">
                         Login
@@ -89,12 +92,15 @@
                 </Grid>
             </materialDesign:Card>
             <TextBlock
-                Margin="0,0,0,3"
+                Margin="0,0,0,5"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Foreground="White">
                 Power By Wuhan University
             </TextBlock>
+
+            <materialDesign:DialogHost x:Name="ProgressBox" />
+            <materialDesign:DialogHost x:Name="MessageBox" CloseOnClickAway="True" />
         </Grid>
     </ContentControl>
 </Window>

@@ -4,6 +4,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using DatabaseApplication.DataBase;
+using MaterialDesignThemes.Wpf;
+using System.Threading.Tasks;
+using DatabaseApplication.ViewModels;
+using System.Threading;
 
 namespace DatabaseApplication
 {
@@ -22,14 +27,35 @@ namespace DatabaseApplication
 
             InitializeComponent();
 
-            ChangePage.Content = new Frame() { Content = new StudentMainPage() };
+        }
 
+        private async void ShowMessageInfo(string message)
+        {
+            UserControls.MessageDialog samMessageDialog = new UserControls.MessageDialog
+            {
+                Message = { Text = message }
+            };
+            await MessageBox.ShowDialog(samMessageDialog);
         }
 
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             Application.Current.Shutdown();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var db = new DBService();
+            if (db.Verify(Account.Text, Password.Password))
+            {
+                ChangePage.Content = new Frame()
+                { Content = new StudentMainPage(db.GetStudentByAccountAndPassword(Account.Text, Password.Password)) };
+            }
+            else
+            {
+                ShowMessageInfo("Your account name or password is incorrect!");
+            }
         }
     }
 }

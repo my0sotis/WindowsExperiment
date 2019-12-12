@@ -1,4 +1,4 @@
-namespace DataBase
+namespace DatabaseApplication.DataBase
 {
     using System;
     using System.Collections.Generic;

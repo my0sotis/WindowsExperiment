@@ -1,4 +1,4 @@
-namespace DataBase
+namespace DatabaseApplication.DataBase
 {
     using System;
     using System.Collections.Generic;
@@ -12,22 +12,6 @@ namespace DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Student()
         {
-            account = new HashSet<Account>();
-            grade1 = new HashSet<Grade>();
-        }
-
-        public Student(string name, string stuid, string idnum, 
-                        string sex, int age, int grade, 
-                        string college, string profession)
-        {
-            this.name = name;
-            studentid = stuid;
-            this.idnum = idnum;
-            this.sex = sex;
-            this.age = age;
-            this.grade = grade;
-            this.college = college;
-            this.profession = profession;
             account = new HashSet<Account>();
             grade1 = new HashSet<Grade>();
         }

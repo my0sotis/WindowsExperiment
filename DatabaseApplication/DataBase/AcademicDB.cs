@@ -1,14 +1,14 @@
-namespace DataBase
+namespace DatabaseApplication.DataBase
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class AcademicModel : DbContext
+    public partial class AcademicDB : DbContext
     {
-        public AcademicModel()
-            : base("name=AcademicModel")
+        public AcademicDB()
+            : base("name=AcademicDB")
         {
         }
 

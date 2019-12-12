@@ -1,4 +1,4 @@
-﻿using DataBase;
+﻿using DatabaseApplication.DataBase;
 using DatabaseApplication.UserControls;
 using MaterialDesignThemes.Wpf;
 using System;
@@ -26,28 +26,26 @@ namespace DatabaseApplication.Views
     public partial class StudentMainPage : Page
     {
         public static Snackbar Snackbar;
-        public StudentMainPage()
+        private Student student;
+        public StudentMainPage(Student student)
         {
             InitializeComponent();
 
             Task.Factory.StartNew(() =>
             {
-                Thread.Sleep(2500);
+                Thread.Sleep(1000);
             }).ContinueWith(t =>
             {
-                //note you can use the message queue from any thread, but just for the demo here we 
-                //need to get the message queue from the snackbar, so need to be on the dispatcher
                 MainSnackbar.MessageQueue.Enqueue("Welcome to Educational Management System");
             }, TaskScheduler.FromCurrentSynchronizationContext());
 
-            DataContext = new ViewModels.StudentMainPageViewModel(MainSnackbar.MessageQueue, 
-                new Student("John", "001", "22222", "Male", 19, 2019, "Computer", "Software"));
             Snackbar = MainSnackbar;
+            this.student = student;
+            DataContext = new ViewModels.StudentMainPageViewModel(MainSnackbar.MessageQueue, student);
         }
 
         private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //until we had a StaysOpen glag to Drawer, this will help with scroll bars
             var dependencyObject = Mouse.Captured as DependencyObject;
             while (dependencyObject != null)
             {
