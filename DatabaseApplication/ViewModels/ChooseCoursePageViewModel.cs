@@ -53,6 +53,11 @@ namespace DatabaseApplication.ViewModels
 			int errorNum = 0;
 			string dupString = "";
 			int dupNum = 0;
+			if (SelectedCourse.Count() == 0)
+			{
+				ShowMessageInfo("You did not choose any courses");
+				return;
+			}
 			foreach (var course in SelectedCourse)
 			{
 				if (dbs.CheckDuplicate(course.course, student))
@@ -68,6 +73,8 @@ namespace DatabaseApplication.ViewModels
 						var c = course.course;
 						c.exist -= 1;
 						dbs.Update(c);
+						SelectedCourse.Remove(course);
+						ResetSelect();
 					}
 					else
 					{
@@ -98,6 +105,14 @@ namespace DatabaseApplication.ViewModels
 		}
 
 		private Student student;
+
+		private void ResetSelect()
+		{
+			foreach (var item in Courses)
+			{
+				item.IsSelected = false;
+			}
+		}
 
 		private bool CheckExist(SelectableViewModel target)
 		{
