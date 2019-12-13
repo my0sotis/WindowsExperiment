@@ -1,14 +1,9 @@
 ﻿using DatabaseApplication.DataBase;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseApplication.ViewModels
 {
-    class GradePageViewModel : BaseViewModel
+	class GradePageViewModel : BaseViewModel
     {
 		public GradePageViewModel(Student student)
 		{
