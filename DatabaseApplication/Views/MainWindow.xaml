@@ -85,6 +85,7 @@
                         Grid.Row="3"
                         Width="100"
                         Click="Button_Click"
+                        IsDefault="True"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         ToolTip="Resource name: MaterialDesignRaisedButton">
                         Login

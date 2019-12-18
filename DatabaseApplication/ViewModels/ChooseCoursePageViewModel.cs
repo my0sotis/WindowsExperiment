@@ -25,7 +25,7 @@ namespace DatabaseApplication.ViewModels
 			}
 
 			AddCommand = new CommandImplementation(Add);
-			SubmitCommand = new CommandImplementation(Submit);
+			SubmitCommand = new CommandImplementation(SubmitAsync);
 		}
 
 		public ICommand AddCommand { get; set; }
@@ -43,61 +43,71 @@ namespace DatabaseApplication.ViewModels
 			}
 		}
 
-		private void Submit(object obj)
+		private async void SubmitAsync(object obj)
 		{
-			DBService dbs = new DBService();
-			string errorString = "";
-			int errorNum = 0;
-			string dupString = "";
-			int dupNum = 0;
-			if (SelectedCourse.Count() == 0)
+			ConfirmDialog samMessageDialog = new ConfirmDialog
 			{
-				ShowMessageInfo("You did not choose any courses");
-				return;
-			}
-			foreach (var course in SelectedCourse)
+				Message = { Text = "Do you really want to choose these courses?" }
+			};
+			var result = await DialogHost.Show(samMessageDialog);
+			if (Equals(result, true))
 			{
-				if (dbs.CheckDuplicate(course.course, student))
+				DBService dbs = new DBService();
+				string errorString = "";
+				int errorNum = 0;
+				string dupString = "";
+				int dupNum = 0;
+				if (SelectedCourse.Count() == 0)
 				{
-					dupNum++;
-					dupString += course.course.cname + " ";
+					ShowMessageInfo("You did not choose any courses");
+					return;
 				}
-				else
+				for (int i = 0; i < SelectedCourse.Count(); i++)
 				{
-					if (dbs.CheckRemained(course.course))
+					BriefCourse course = SelectedCourse[i];
+					if (dbs.CheckDuplicate(course.course, student))
 					{
-						dbs.Add(new Grade(student.sid, course.course.cid));
-						var c = course.course;
-						c.exist -= 1;
-						dbs.Update(c);
-						SelectedCourse.Remove(course);
-						ResetSelect();
+						dupNum++;
+						dupString += course.course.cname + " ";
 					}
 					else
 					{
-						errorNum++;
-						errorString += course.course.cname + " ";
+						if (dbs.CheckRemained(course.course))
+						{
+							dbs.Add(new Grade(student.sid, course.course.cid));
+							var c = course.course;
+							c.exist -= 1;
+							dbs.Update(c);
+							SelectedCourse.Remove(course);
+							ResetSelect();
+						}
+						else
+						{
+							errorNum++;
+							errorString += course.course.cname + " ";
+						}
 					}
+
 				}
-			}
-			if (errorNum != 0 || dupNum != 0)
-			{
-				string info = "";
-				if (dupNum != 0)
+				if (errorNum != 0 || dupNum != 0)
 				{
-					info += "There are " + dupNum
-					+ " courses which you have chosen. Please choose others. They are " + errorString + ".";
+					string info = "";
+					if (dupNum != 0)
+					{
+						info += "There are " + dupNum
+						+ " courses which you have chosen. Please choose others. They are " + dupString + ".";
+					}
+					if (errorNum != 0)
+					{
+						info += "There are " + errorNum
+						+ " courses having been full. Please choose others. They are " + errorString + ".";
+					}
+					ShowMessageInfo(info);
 				}
-				if (errorNum != 0)
+				else
 				{
-					info += "There are " + errorNum
-					+ " courses having been full. Please choose others. They are " + errorString + ".";
+					ShowMessageInfo("Course selection successful!");
 				}
-				ShowMessageInfo(info);
-			}
-			else
-			{
-				ShowMessageInfo("Course selection successful!");
 			}
 		}
 
@@ -147,7 +157,6 @@ namespace DatabaseApplication.ViewModels
 			{
 				if (_SelectedCourse == value) return;
 				_SelectedCourse = value;
-				OnPropertyChanged();
 			}
 		}
 
