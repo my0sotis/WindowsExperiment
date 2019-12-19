@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace DatabaseApplication.Command
 {
-    class PageItem : INotifyPropertyChanged
+    internal class PageItem : INotifyPropertyChanged
     {
         private string _name;
         private object _content;

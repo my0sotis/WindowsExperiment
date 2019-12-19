@@ -1,15 +1,13 @@
-﻿using DatabaseApplication.Views;
+﻿using DatabaseApplication.DataBase;
+using DatabaseApplication.UserControls;
+using DatabaseApplication.Views;
+using MaterialDesignThemes.Wpf;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using DatabaseApplication.DataBase;
-using MaterialDesignThemes.Wpf;
-using System.Threading.Tasks;
-using DatabaseApplication.ViewModels;
-using System.Threading;
-using DatabaseApplication.UserControls;
 
 namespace DatabaseApplication
 {
@@ -31,7 +29,7 @@ namespace DatabaseApplication
 
         private async void ShowMessageInfo(string message)
         {
-            UserControls.MessageDialog samMessageDialog = new UserControls.MessageDialog
+            MessageDialog samMessageDialog = new UserControls.MessageDialog
             {
                 Message = { Text = message }
             };
@@ -82,7 +80,6 @@ namespace DatabaseApplication
                                 args.Session.Close(false);
                                 ShowMessageInfo("Your account name or password is incorrect!");
                             }
-
                         }
                         catch (Exception)
                         {

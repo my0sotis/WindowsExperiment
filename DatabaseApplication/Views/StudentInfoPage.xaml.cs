@@ -7,7 +7,7 @@ namespace DatabaseApplication.Views
     /// <summary>
     /// StudentInfoPage.xaml 的交互逻辑
     /// </summary>
-    public partial class StudentInfoPage : UserControl 
+    public partial class StudentInfoPage : UserControl
     {
         public StudentInfoPage(Student student)
         {

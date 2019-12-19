@@ -1,16 +1,12 @@
-﻿using DatabaseApplication.DataBase;
-using DatabaseApplication.Command;
+﻿using DatabaseApplication.Command;
+using DatabaseApplication.DataBase;
 using DatabaseApplication.Views;
 using MaterialDesignThemes.Wpf;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseApplication.ViewModels
 {
-    class StudentMainPageViewModel
+    internal class StudentMainPageViewModel
     {
         public StudentMainPageViewModel(ISnackbarMessageQueue snackbarMessageQueue, Student student)
         {

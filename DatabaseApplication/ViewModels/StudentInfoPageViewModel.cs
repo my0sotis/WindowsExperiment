@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DatabaseApplication.DataBase;
+﻿using DatabaseApplication.DataBase;
 
 namespace DatabaseApplication.ViewModels
 {
-    class StudentInfoPageViewModel : BaseViewModel
+    internal class StudentInfoPageViewModel : BaseViewModel
     {
         public StudentInfoPageViewModel(Student student)
         {

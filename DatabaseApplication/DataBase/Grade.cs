@@ -20,7 +20,9 @@ namespace DatabaseApplication.DataBase
 
         public virtual Student student { get; set; }
 
-        public Grade() { }
+        public Grade()
+        {
+        }
 
         public Grade(int sid, int cid)
         {

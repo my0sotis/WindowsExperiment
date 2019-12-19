@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 
 namespace DatabaseApplication.DataBase
 {
     public class DBService
     {
-        public DBService() { }
+        public DBService()
+        {
+        }
 
         // Add Methods
         public void Add(Grade grade)

@@ -2,7 +2,7 @@
 
 namespace DatabaseApplication.ViewModels
 {
-    class BaseViewModel : INotifyPropertyChanged
+    internal class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

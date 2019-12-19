@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace DatabaseApplication.Command
 {
-    static class Link
+    internal static class Link
     {
         public static void OpenInBrowser(string url)
         {

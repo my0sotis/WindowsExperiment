@@ -15,7 +15,6 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
-                <!--  throw in some extra colour for our floating action button  -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Green.Named.Primary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -70,7 +69,6 @@
                     ToolTip="Maybe you want to give me some advice?">
                     <materialDesign:PackIcon Kind="Email" />
                 </Button>
-
             </StackPanel>
         </materialDesign:PopupBox>
     </Grid>

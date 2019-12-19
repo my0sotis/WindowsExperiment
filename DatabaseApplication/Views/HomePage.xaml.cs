@@ -1,5 +1,4 @@
 ﻿using DatabaseApplication.Command;
-using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
 
