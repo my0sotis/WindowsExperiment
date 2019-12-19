@@ -58,6 +58,8 @@
                             <StackPanel>
                                 <Button Click="MenuPopupButton_OnClick" Content="Hello World" />
                                 <Button Click="MenuPopupButton_OnClick" Content="Goodbye" />
+                                <Separator />
+                                <Button Click="Button_Click" Content="Exit" />
                             </StackPanel>
                         </materialDesign:PopupBox>
                         <TextBlock

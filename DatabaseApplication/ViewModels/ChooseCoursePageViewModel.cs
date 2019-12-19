@@ -33,6 +33,7 @@ namespace DatabaseApplication.ViewModels
 
 		private void Add(object obj)
 		{
+			SelectedCourse.Clear();
 			var targets = GetSelectedCourses();
 			foreach (var target in targets)
 			{

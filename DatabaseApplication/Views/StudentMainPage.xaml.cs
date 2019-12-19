@@ -65,5 +65,18 @@ namespace DatabaseApplication.Views
 
             await DialogHost.Show(sampleMessageDialog, "RootDialog");
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ConfirmDialog samMessageDialog = new ConfirmDialog
+            {
+                Message = { Text = "Do you really want to exit?" }
+            };
+            var result = await DialogHost.Show(samMessageDialog);
+            if (Equals(result, true))
+            {
+                Application.Current.MainWindow.Close();
+            }
+        }
     }
 }
