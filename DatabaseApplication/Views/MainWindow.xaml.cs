@@ -58,7 +58,7 @@ namespace DatabaseApplication
             }
         }
 
-        [Obsolete]
+        [Obsolete("Cannot Use that Progress Box!", true)]
         private void Button_Click_Progress(object sender, RoutedEventArgs e)
         {
             Application.Current.Dispatcher.Invoke(async () =>
